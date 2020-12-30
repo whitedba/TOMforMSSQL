@@ -117,9 +117,9 @@
                         "data": "servicename", 
                         "render": function ( data, type, row ) {
                             if ( type === 'display' ) {
-                                data = '<a href="/render_service/' + row.service_no + '">' + data + '</a>';                                
+                                data = '<a href="/render_service" id="' + row.service_no + '">' + data + '</a>';                                                                                             
                             }
-                            return data;
+                            return data;                            
                         }
                     },                    
                     { "data": "status" },
@@ -131,6 +131,8 @@
             });
         
         } );
+
+     
     </script>
 
 </body>

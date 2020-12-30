@@ -68,8 +68,7 @@ func (a *AppHandler) renderGetServiceByServiceNoHandler(w http.ResponseWriter, r
 	// list := a.db.GetServiceByServiceNo(serviceno)
 
 	filePrefix, _ := filepath.Abs("./app/views/")
-
-	tmpl, err := template.New("servicelist").ParseFiles(		
+	tmpl, err := template.New("service").ParseFiles(		
 		filePrefix + "/header.html",
 		filePrefix + "/footer.html",
 		filePrefix + "/sidebar.html",		
@@ -78,6 +77,7 @@ func (a *AppHandler) renderGetServiceByServiceNoHandler(w http.ResponseWriter, r
 	if err != nil {
 		panic(err)
 	}
+	tmpl.ExecuteTemplate(w, "service.html", nil)
 
 	// e, err := json.Marshal(list)
 	// if err != nil {
@@ -85,9 +85,7 @@ func (a *AppHandler) renderGetServiceByServiceNoHandler(w http.ResponseWriter, r
 	// }
 	// fmt.Println(string(e))
 
-	// //fmt.Println(services[0].created_date)
-
-	tmpl.ExecuteTemplate(w, "service.html", nil)
+	// //fmt.Println(services[0].created_date)	
 	
 }
 
@@ -117,9 +115,9 @@ func MakeHandler() *AppHandler {
 	}
 
 	r.HandleFunc("/", a.indexHandler)
-	r.HandleFunc("/render_servicelist", a.renderGetServiceListHandler).Methods("GET")
+	r.HandleFunc("/render_service", a.renderGetServiceByServiceNoHandler).Methods("GET")
+	r.HandleFunc("/render_servicelist", a.renderGetServiceListHandler).Methods("GET")	
 	r.HandleFunc("/servicelist", a.getServiceListHandler).Methods("GET")
-	r.HandleFunc("/render_service/{serviceno:[0-9]+}", a.renderGetServiceByServiceNoHandler).Methods("GET")
 	r.HandleFunc("/service/{serviceno:[0-9]+}", a.getServiceByServiceNoHandler).Methods("GET")
 	
 	r.HandleFunc("/host/{serviceno:[0-9]+}", a.getHostListByServiceNoHandler).Methods("GET")
