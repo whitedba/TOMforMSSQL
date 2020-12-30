@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{ template "header.html" }}
+
+<body id="page-top">
+    {{range .}}
+        {{.ServiceNo}}
+    {{end}}
+
+
+  <!-- Page Wrapper -->
+    <div id="wrapper">      
+        
+        {{ template "sidebar.html" }}
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">                    
+                </nav>                
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Host</h1>                    
+
+                    
+                    <!-- DataTables Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DBTEAM > l_dev_sqlserver_db2team-test_db2team-test</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="serviceList" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Platform<br />&nbsp;</th>
+                                            <th>Env<br />&nbsp;</th>
+                                            <th>DBType<br />&nbsp;</th>
+                                            <th>ServiceCategory<br />&nbsp;</th>
+                                            <th>ServiceName<br />&nbsp;</th>
+                                            <th>Status<br />&nbsp;</th>
+                                            <th>DBA<br />&nbsp;</th>                                                                                        
+                                            <th>#Host<br />&nbsp;</th>
+                                            <th>#Host<br />Skip</th>                                                                          
+                                            <th>#Host<br />AlertSkip</th>                                                                          
+                                        </tr>
+                                    </thead>                                                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                     
+
+                    <!-- DataTables Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">ALERT - SKIP <button type="button" class="btn btn-success">SAVE</button></h6>                            
+                        </div>                        
+                        <div class="card-body">
+                            <div class="table-responsive">                                
+                                <table class="table table-hover" id="hostList_alertskip" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Host<br />SKIP</th>
+                                            <th>ServerGroup<br />&nbsp;</th>
+                                            <th>HostName<br />&nbsp;</th>
+                                            <th>Port<br />&nbsp;</th>
+                                            <th>CPU<br />Usage</th>
+                                            <th>MEM<br />Usage</th>
+                                            <th>DISK<br />Space</th>
+                                            <th>SYS<br />Shutdown</th>
+                                            <th>SQL<br />Uptime</th>
+                                            <th>Mirror<br />State</th>
+                                            <th>Mirror<br />Role</th>
+                                            <th>AGSync<br />State</th>
+                                            <th>AGRole<br />&nbsp;</th>
+                                            <th>DB<br />Offline</th>
+                                            <th>DBRecov<br />&nbsp;</th>
+                                            <th>DBRecov<br />Pending</th>
+                                            <th>DBSusp<br />&nbsp;</th>                                            
+                                        </tr>
+                                    </thead>                                    
+                                    <tbody>
+                                        <tr>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true" checked></div></td>
+                                            <td>l_dev_sqlserver_db2team-test_AG</td>
+                                            <td>VLMSAOTCDB1001</td>
+                                            <td>3389</td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true" checked></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true" checked></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td>l_dev_sqlserver_db2team-test_AG</td>
+                                            <td>VLMSAOTCDB1002</td>
+                                            <td>31433</td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true" checked></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td>l_dev_sqlserver_db2team-test_AG</td>
+                                            <td>VLMSAOTCDB1003</td>
+                                            <td>21433</td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true" checked></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td>l_dev_sqlserver_db2team-test_AG</td>
+                                            <td>VLMSAOTCDB1004</td>
+                                            <td>21433</td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td>l_dev_sqlserver_db2team-test_mirroring</td>
+                                            <td>mirmon001-jp2v</td>
+                                            <td>1433</td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td>l_dev_sqlserver_db2team-test_mirroring</td>
+                                            <td>swymir001-jp2v</td>
+                                            <td>1433</td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td>l_dev_sqlserver_db2team-test_mirroring</td>
+                                            <td>swymir002-jp2v</td>
+                                            <td>1433</td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                            <td><div class="form-check"><input id="restart" v-model="restart" class="form-check-input" type="checkbox" value="true"></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DataTables Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">ALERT - Upper/Lower Bound <button type="button" class="btn btn-success"> SAVE</button></h6>                               
+                        </div>                        
+                        <div class="card-body">
+                            <div class="table-responsive">                                
+                                <table class="table table-hover" id="hostList_alertbound" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ServerGroup</th>
+                                            <th>HostName</th>
+                                            <th>Port</th>
+                                            <th>CPUUsage</th>
+                                            <th>MEMUsage</th>
+                                            <th>DISKSpace</th>                                                                                   
+                                        </tr>
+                                    </thead>                                    
+                                    <tbody>
+                                        <tr>
+                                            <td>l_dev_sqlserver_db2team-test_AG</td>
+                                            <td>VLMSAOTCDB1001</td>
+                                            <td>3389</td>
+                                            <td><input class="form-control" placeholder="default: 60%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>l_dev_sqlserver_db2team-test_AG</td>
+                                            <td>VLMSAOTCDB1002</td>
+                                            <td>31433</td>
+                                            <td><input class="form-control" placeholder="default: 60%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>                                            
+                                        </tr>
+                                        <tr>
+                                            <td>l_dev_sqlserver_db2team-test_AG</td>
+                                            <td>VLMSAOTCDB1003</td>
+                                            <td>21433</td>
+                                            <td><input class="form-control" placeholder="default: 60%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>l_dev_sqlserver_db2team-test_AG</td>
+                                            <td>VLMSAOTCDB1004</td>
+                                            <td>21433</td>                                            
+                                            <td><input class="form-control" placeholder="default: 60%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>l_dev_sqlserver_db2team-test_mirroring</td>
+                                            <td>mirmon001-jp2v</td>
+                                            <td>1433</td>
+                                            <td><input class="form-control" placeholder="default: 60%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>l_dev_sqlserver_db2team-test_mirroring</td>
+                                            <td>swymir001-jp2v</td>
+                                            <td>1433</td>
+                                            <td><input class="form-control" placeholder="default: 60%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>l_dev_sqlserver_db2team-test_mirroring</td>
+                                            <td>swymir002-jp2v</td>
+                                            <td>1433</td>
+                                            <td><input class="form-control" placeholder="default: 60%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                            <td><input class="form-control" placeholder="default: 80%"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+                
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    {{ template "footer.html" }}
+ 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            
+            $('#serviceList').DataTable( {    
+                //lengthMenu: [ 50, 100, 150, 200, 250 ],
+                //stateSave: true,
+                //"dom": 'iptfl',          
+                "info": false,
+                "ordering": false,            
+                "lengthChange": false,                   
+                "searching": false,  
+                "paging": false,
+                "ajax": {                    
+                    "url": "/service/11111",
+                    "type": "GET",
+                    "datatype": 'json',    
+                    "dataSrc": ''                    
+                },
+                "columns": [
+                    { "data": "platform" },
+                    { "data": "env" },
+                    { "data": "dbtype" },
+                    { "data": "servicecategory" },
+                    { "data": "servicename" },                    
+                    { "data": "status" },
+                    { "data": "dba" },
+                    { "data": "num_host" },                    
+                    { "data": "num_host_skip_host" },                    
+                    { "data": "num_host_skip_alert" },                    
+                ]
+            });
+
+            $('#hostList_alertskip').DataTable( {    
+                //lengthMenu: [ 50, 100, 150, 200, 250 ],
+                //stateSave: true,
+                //"dom": 'iptfl',    
+                "info": false,
+                "ordering": false,            
+                "lengthChange": false,                   
+                "searching": false,  
+                "paging": false,
+                "ajax": {
+                    "url": "/service/11111",
+                    "type": "GET",
+                    "datatype": 'json',    
+                    "dataSrc": ''                    
+                },
+                "columns": [
+                    { 
+                        "data": "alertskip_host", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { "data": "servergroup" },
+                    { "data": "hostname" },
+                    { "data": "port" },
+                    { 
+                        "data": "alertskip_cpuusage",
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_memusage",
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                        
+                    },
+                    { 
+                        "data": "alertskip_diskspace", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_sysshutdown", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_sqluptime", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_mirrorstate", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_mirrorrole", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_agsyncstate", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_agrole", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_dboffline", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_dbrecov", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_dbrecovpending", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                    { 
+                        "data": "alertskip_dbsusp", 
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="checkbox" class="editor-active"' + ((data == 1) ? 'checked' : '') + '>';
+                            }
+                            return data;
+                        }
+                    },
+                ]
+            });
+
+            $('#hostList_alertbound').DataTable( {    
+                //lengthMenu: [ 50, 100, 150, 200, 250 ],
+                //stateSave: true,
+                //"dom": 'iptfl',    
+                "info": false,
+                "ordering": false,            
+                "lengthChange": false,                   
+                "searching": false,  
+                "paging": false,            
+                "ajax": {
+                    "url": "/service/11111",
+                    "type": "GET",
+                    "datatype": 'json',    
+                    "dataSrc": ''                    
+                },
+                "columns": [                                            
+                    { "data": "servergroup" },
+                    { "data": "hostname" },
+                    { "data": "port" },
+                    { 
+                        "data": "alertbound_cpuusage",
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="number" class="form-control" placeholder="default: 60%" value="'+data+'">';                                
+                            }
+                            return data;
+                        }
+                    },                    
+                    { "data": "alertbound_memusage",
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="number" class="form-control" placeholder="default: 60%" value="'+data+'">';                                
+                            }
+                            return data;
+                        }
+                    },                    
+                    { "data": "alertbound_diskspace",
+                        "render": function ( data, type, row ) {
+                            if ( type === 'display' ) {
+                                return '<input type="number"  class="form-control" placeholder="default: 60%" value="'+data+'">';                                
+                            }
+                            return data;
+                        }
+                    },         
+                ]
+            });       
+
+        } );
+    </script>
+
+</body>
+</html>
+
+
+
+        
+
+    
